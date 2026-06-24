@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holyoke Veterans — Burial Ground Memorial Maps</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=EB+Garamond:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #0f0f0f;
+    --surface:  #161616;
+    --border:   #2a2a2a;
+    --gold:     #C8A96E;
+    --gold-dim: #8a7148;
+    --text:     #e8dfc8;
+    --muted:    #888;
+    --live:     #4a8c5c;
+    --coming:   #555;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 28px 40px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .eyebrow {
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+  }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .tagline {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    max-width: 680px;
+    padding: 40px 40px 0;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #b0a890;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card {
+    background: var(--surface);
+    padding: 32px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+    position: relative;
+  }
+  .card:hover { background: #1d1d1d; }
+  .card.coming { cursor: default; }
+  .card.coming:hover { background: var(--surface); }
+
+  .card-status {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot.live    { background: var(--live); box-shadow: 0 0 6px var(--live); }
+  .dot.coming  { background: var(--coming); }
+
+  .status-live   { color: var(--live); }
+  .status-coming { color: var(--coming); }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .card.live .card-name { color: var(--gold); }
+
+  .card-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .card-desc {
+    font-size: 0.82rem;
+    color: #8a8070;
+    line-height: 1.65;
+    margin-top: 4px;
+    flex: 1;
+  }
+
+  .card-count {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.75rem;
+    color: var(--gold-dim);
+    margin-top: 8px;
+  }
+
+  .card-arrow {
+    position: absolute;
+    top: 32px; right: 32px;
+    color: var(--gold-dim);
+    font-size: 1.1rem;
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s;
+  }
+  .card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 36px 40px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+  }
+  footer strong { color: var(--gold-dim); font-weight: 400; }
+  footer a { color: var(--gold-dim); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    header, .intro, footer { padding-left: 20px; padding-right: 20px; }
+    .card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">City of Holyoke, Massachusetts</div>
+  <h1>Holyoke Veterans — Burial Ground Memorial Maps</h1>
+  <div class="tagline">Documenting those who served, one stone at a time</div>
+</header>
+
+<p class="intro">
+  These interactive maps document veterans buried in Holyoke's historic burial grounds. Each entry is drawn from the gravestone itself — name, rank, unit, and era — amplified by historical research. Maps are added as field work is completed.
+</p>
+
+<div class="grid">
+
+  <!-- CALVARY — LIVE -->
+  <a class="card live" href="https://markwot-ops.github.io/calvary-map/" target="_blank">
+    <span class="card-arrow">→</span>
+    <span class="card-status"><span class="dot live"></span><span class="status-live">Live</span></span>
+    <div class="card-name">Calvary Cemetery</div>
+    <div class="card-meta">1040 Northampton Street &nbsp;·&nbsp; Est. c. 1870s</div>
+    <div class="card-desc">Holyoke's principal Catholic burial ground, serving Sacred Heart, Our Lady of the Holy Rosary, and Blessed Sacrament parishes. Spans the Civil War through Vietnam.</div>
+    <div class="card-count">374 veterans documented</div>
+  </a>
+
+  <!-- ELMWOOD — LIVE -->
+  <a class="card live" href="https://markwot-ops.github.io/elmwood-map/" target="_blank">
+    <span class="card-arrow">→</span>
+    <span class="card-status"><span class="dot live"></span><span class="status-live">Live</span></span>
+    <div class="card-name">Elmwood Cemetery</div>
+    <div class="card-meta">2190 Northampton Street &nbsp;·&nbsp; Oldest burial 1755</div>
+    <div class="card-desc">The oldest burial ground in Holyoke, given to the city in 1955. Home to veterans of the French & Indian War, Revolutionary War, and Civil War through World War II — including two veterans killed in 1777 and a WWI Navy Yeomanette.</div>
+    <div class="card-count">44 veterans documented</div>
+  </a>
+
+  <!-- FORESTDALE — COMING -->
+  <div class="card coming">
+    <span class="card-status"><span class="dot coming"></span><span class="status-coming">In Progress</span></span>
+    <div class="card-name">Forestdale Cemetery</div>
+    <div class="card-meta">304 Cabot Street &nbsp;·&nbsp; Est. 1860</div>
+    <div class="card-desc">Holyoke's public secular cemetery, organized in 1860 and dedicated in 1862. Contains GAR plots, a potter's field, and the grave of Medal of Honor recipient John MacKenzie (WWI).</div>
+  </div>
+
+  <!-- ST. JEROME — COMING -->
+  <div class="card coming">
+    <span class="card-status"><span class="dot coming"></span><span class="status-coming">In Progress</span></span>
+    <div class="card-name">St. Jerome Cemetery</div>
+    <div class="card-meta">125 Saint Jerome Avenue &nbsp;·&nbsp; Est. 1864</div>
+    <div class="card-desc">Opened in 1864, originally known as the Catholic Cemetery of Holyoke. Served Irish and French Canadian immigrant communities. Eight victims of the 1875 Precious Blood Church fire are buried here.</div>
+  </div>
+
+  <!-- ROCK VALLEY — COMING -->
+  <div class="card coming">
+    <span class="card-status"><span class="dot coming"></span><span class="status-coming">In Progress</span></span>
+    <div class="card-name">Rock Valley Cemetery</div>
+    <div class="card-meta">Rock Valley Road &nbsp;·&nbsp; Some burials from 1700s</div>
+    <div class="card-desc">A small burial ground in West Holyoke near the Southampton line, with early interments dating to the 18th century.</div>
+  </div>
+
+  <!-- PLACEHOLDER FOR EXPANSION -->
+  <div class="card coming">
+    <span class="card-status"><span class="dot coming"></span><span class="status-coming">Future</span></span>
+    <div class="card-name">Additional Sites</div>
+    <div class="card-meta">To be announced</div>
+    <div class="card-desc">Field survey underway. Additional burial grounds will be added as veterans are identified and documented.</div>
+  </div>
+
+</div>
+
+<footer>
+  <strong>City of Holyoke Veterans Graves Officer</strong><br>
+  Mark Wotton &nbsp;·&nbsp; <a href="mailto:mwotton@holyoke.org">mwotton@holyoke.org</a> &nbsp;·&nbsp; (413) 322-5630<br>
+  310 Appleton Street, 1st Floor, Holyoke, MA 01040
+</footer>
+
+</body>
+</html>
