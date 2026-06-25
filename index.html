@@ -29,7 +29,6 @@
     min-height: 100vh;
   }
 
-  /* ── HEADER ── */
   header {
     border-bottom: 1px solid var(--border);
     padding: 28px 40px 24px;
@@ -58,7 +57,6 @@
     margin-top: 2px;
   }
 
-  /* ── INTRO ── */
   .intro {
     max-width: 680px;
     padding: 40px 40px 0;
@@ -67,7 +65,6 @@
     color: #b0a890;
   }
 
-  /* ── GRID ── */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -102,11 +99,7 @@
     align-items: center;
     gap: 6px;
   }
-  .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    display: inline-block;
-  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
   .dot.live    { background: var(--live); box-shadow: 0 0 6px var(--live); }
   .dot.coming  { background: var(--coming); }
 
@@ -122,38 +115,17 @@
   }
   .card.live .card-name { color: var(--gold); }
 
-  .card-meta {
-    font-size: 0.75rem;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-  }
-
-  .card-desc {
-    font-size: 0.82rem;
-    color: #8a8070;
-    line-height: 1.65;
-    margin-top: 4px;
-    flex: 1;
-  }
-
-  .card-count {
-    font-family: 'EB Garamond', serif;
-    font-size: 0.75rem;
-    color: var(--gold-dim);
-    margin-top: 8px;
-  }
+  .card-meta  { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; }
+  .card-desc  { font-size: 0.82rem; color: #8a8070; line-height: 1.65; margin-top: 4px; flex: 1; }
+  .card-count { font-family: 'EB Garamond', serif; font-size: 0.75rem; color: var(--gold-dim); margin-top: 8px; }
 
   .card-arrow {
-    position: absolute;
-    top: 32px; right: 32px;
-    color: var(--gold-dim);
-    font-size: 1.1rem;
-    opacity: 0;
-    transition: opacity 0.15s, transform 0.15s;
+    position: absolute; top: 32px; right: 32px;
+    color: var(--gold-dim); font-size: 1.1rem;
+    opacity: 0; transition: opacity 0.15s, transform 0.15s;
   }
   .card:hover .card-arrow { opacity: 1; transform: translateX(3px); }
 
-  /* ── FOOTER ── */
   footer {
     padding: 36px 40px;
     font-size: 0.75rem;
@@ -192,7 +164,7 @@
     <div class="card-name">Calvary Cemetery</div>
     <div class="card-meta">1040 Northampton Street &nbsp;·&nbsp; Est. c. 1870s</div>
     <div class="card-desc">Holyoke's principal Catholic burial ground, serving Sacred Heart, Our Lady of the Holy Rosary, and Blessed Sacrament parishes. Spans the Civil War through Vietnam.</div>
-    <div class="card-count">374 veterans documented</div>
+    <div class="card-count">375 veterans documented</div>
   </a>
 
   <!-- ELMWOOD — LIVE -->
@@ -205,7 +177,7 @@
     <div class="card-count">44 veterans documented</div>
   </a>
 
-  <!-- FORESTDALE — COMING -->
+  <!-- FORESTDALE — IN PROGRESS -->
   <div class="card coming">
     <span class="card-status"><span class="dot coming"></span><span class="status-coming">In Progress</span></span>
     <div class="card-name">Forestdale Cemetery</div>
@@ -229,7 +201,7 @@
     <div class="card-desc">A small burial ground in West Holyoke near the Southampton line, with early interments dating to the 18th century.</div>
   </div>
 
-  <!-- PLACEHOLDER FOR EXPANSION -->
+  <!-- ADDITIONAL SITES -->
   <div class="card coming">
     <span class="card-status"><span class="dot coming"></span><span class="status-coming">Future</span></span>
     <div class="card-name">Additional Sites</div>
